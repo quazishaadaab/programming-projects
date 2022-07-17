@@ -1,0 +1,81 @@
+1. make server js filewith listen and express declarations
+2. make views/ room.ejs file with http
+3. npm init 
+4.npm install express
+5.npm install -g nodemon
+5.nodemon server to start server
+6.npm install ejs
+
+initalzie our nodejs project
+initlaiz eour first view 
+create a room id.
+
+app.set and app.get are needed declartions
+7.npm install uid . sets and generated a unique id/. this creates unique id for the rooms
+
+import uuid library.( const v3) 
+
+to conconanate the url with room id we do app.get('/:room', ))) which renders the room given the room id parameter 
+
+res.redirect() will redirect you to the generated uuid so it will sent you to app.get(/:room) which renders the uuid, we just passed
+the room id to our server. 
+
+Add ability to view our own video :
+
+create public/script.js
+
+add script tag into room.ejs file referencing script.js file
+
+app.use(express) will use the public folder . you need to make this declaration.
+
+script.js is where the javascript element will live. 
+
+navigator.mediadecives.getusermedia will let us get audio and video data from chrome.
+	Video : true lets access video 
+	audio :true lets access audio
+
+promise is event in future that will either be resolved or rejected.
+if promise is succesfull than chrome will give access to audio and video
+
+myVideo stream variable will 
+will create stream function that takes myVideo stream variable and saves that stream. 
+
+make function calle addvideo stream and will take video object and a stream object and than play the streamm with 
+video.srcObject=stream. when we load all data for stream we will play video the command,video.addeventlisterener... video.play() will do that
+
+we will create new variable myVideo that will be the video.
+myVide.muted=true will mute sound
+
+addVideostream(myVideo, stream) ; will add the video element. 
+
+
+
+in room.ejs we will create video grid. will store all video elements. 
+
+In script.js we will create videogrid variable and get the video-grid element
+In script.js we will append video to the video grid element. videogrid.append(video)
+make sure to declare the script.js take in room.ejs AFTER tge <div id="video-grid"> tag . this is because script.js needs toload after the video grid has been declared since script.js is using the video grid element created in room.ejs( you cant use something if it aint been declared before)
+
+Create style.css file and make the css tage in room.ejs. 
+
+
+Add the ability for others to stream their video : 
+
+Introduce peer.js and socket.io.
+Socket.io is for real time communication. it is a libary which use web sockets. async real time communication. socket and http difference , is that http can make request to server but server can only respond and not send request to you. with socket.io the server can communicate with you and you to it. with socket io the server doesnt  have to wait for a request from you to start a message/communcation. its like one stream
+
+npm install socket.io.import it in server.js.(const io = require(socket.io)(server).
+io.on() - when user is connected we will run a function. once connected user will join the room. socket.on(joinroom)
+we will need to send the info that a user has joined a room. we need to send this socket.
+Emitting :
+Go to room.ejs to emit this socket, we need to create a script tag that imports socket.io libaray in room.ejs.
+
+In script.js we will create socket.emit("join-room") which will emit. 
+In sciprt.js import socket io by const socket=io()
+Run in commnad line, nodemon server.js. it should work.
+
+defer means it will be loaded last.
+
+
+
+ 
